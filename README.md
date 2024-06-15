@@ -1,2 +1,0 @@
-# dataapp
-analytical site
