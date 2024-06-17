@@ -1,8 +1,5 @@
 import os
 from pathlib import Path
-import django_heroku
-from decouple import config
-import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -10,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-19_-gz5a3%33e4mlftt1k8^!c9&-=rp^%u)@2m0&8(jvksjk52'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -34,7 +31,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'ecommerce.urls'
@@ -76,10 +73,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Heroku settings
-django_heroku.settings(locals())
+
 
 # Redirect URLs
 LOGIN_REDIRECT_URL = '/profile/'
